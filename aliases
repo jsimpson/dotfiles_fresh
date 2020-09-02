@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# ls
+alias ls='ls --color=always'
+alias sl=ls
+alias ll='ls -lh'
+alias la='ls -lha'
+alias l='ls -lha'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias lg='ls --color=always | grep --color=always -i'
+
+# pretty print subdir tree
+alias tree="find . -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
+
+# pretty print path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# generate timestamp
+alias timestamp='date "+%Y%m%d%H%M%S"'
+
+# grep for running process
+alias psg='ps ax | grep -v grep | grep '
+alias df='df -h'
+alias less='less -W'
+alias lf='less -i +F'
