@@ -90,12 +90,13 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 augroup rainbow
-    au!
-    au FileType javascript,typescript,python,ruby RainbowParentheses
+  au!
+  au FileType javascript,typescript,python,ruby RainbowParentheses
 augroup END
 
 " coc.nvim
-let g:coc_global_extensions = []
+let g:coc_global_extensions = ['coc-deno', 'coc-clangd', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-json']
+
 if isdirectory('./node_modules')
   if isdirectory('./node_modules/prettier')
     let g:coc_global_extensions += ['coc-prettier']
@@ -115,7 +116,17 @@ inoremap <silent><expr> <TAB>
      \ <SID>check_back_space() ? "\<TAB>" :
      \ coc#refresh()
 
+command! -nargs=0 DenoFmt :%!deno fmt .
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+"" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>r :CocRestart<CR>
+nmap <silent> <leader>o :CocList outline<CR>
+nmap <silent> <leader>s :CocList outline<CR>
 
 " ag
 if executable('ag')
@@ -140,12 +151,6 @@ let g:lightline = {
   \ }
 
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " set popup menu bg color to match jellybeans theme better
 hi Pmenu guibg=#1c1c1c

@@ -82,3 +82,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export DENO_INSTALL="/home/jsimpson/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export PATH="$HOME/opt/cross/bin:$PATH"
