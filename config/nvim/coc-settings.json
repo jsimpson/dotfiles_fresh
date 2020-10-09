@@ -8,5 +8,6 @@
     "coc.preferences.hoverTarget": "float",
     "javascript.suggestionActions.enabled": false,
     "javascript.validate.enable": false,
-    "clangd.path": "/home/jsimpson/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
+    "clangd.path": "/home/jsimpson/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
+    "solargraph.diagnostics": true
 }

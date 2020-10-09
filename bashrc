@@ -37,7 +37,7 @@ else
 fi
 
 export EDITOR=/usr/bin/vim
-export PS1="\[$(tput setaf 4)\]\u@\h: \[$(tput setaf 2)\]\W \[$(tput sgr0)\]$ "
+export PS1="\[$(tput setaf 4)\]\u: \[$(tput setaf 5)\]\W \[$(tput sgr0)\]$ "
 
 # easily go up lots of directories
 function up {
@@ -51,6 +51,11 @@ function up {
 }
 
 [ -z "$TMUX" ] && export TERM=st-256color
+
+export FZF_DEFAULT_OPTS='
+  --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
+  --color info:141,prompt:84,spinner:212,pointer:212,marker:212
+'
 
 source ~/.aliases
 source ~/.bash_completion
