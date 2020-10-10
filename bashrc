@@ -53,8 +53,8 @@ function up {
 [ -z "$TMUX" ] && export TERM=st-256color
 
 export FZF_DEFAULT_OPTS='
-  --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
-  --color info:141,prompt:84,spinner:212,pointer:212,marker:212
+  --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
+  --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54
 '
 
 source ~/.aliases
@@ -89,3 +89,7 @@ export DENO_INSTALL="/home/jsimpson/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 export PATH="$HOME/opt/cross/bin:$PATH"
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+source "$HOME/dotfiles/gruvbox_256palette.sh"

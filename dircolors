@@ -1,245 +1,4 @@
-# 256 color jellybeans theme for the color GNU ls utility.
-# Used and tested with dircolors (GNU coreutils) 8.13
-#
-# @author  {@link http://c7.se Peter Hellberg}
-# @license http://opensource.org/licenses/MIT The MIT License (MIT)
-#
-# Heavily based on https://github.com/seebi/dircolors-solarized
-#
-# More Information at
-# https://github.com/peterhellberg/dircolors-jellybeans
-#
-#
-# Standard colors
-#
-# Below are the color init strings for the basic file types. A color init
-# string consists of one or more of the following numeric codes:
-# Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
-#
-#
-# 256 color support
-# see here: http://www.mail-archive.com/bug-coreutils@gnu.org/msg11030.html)
-#
-# Text 256 color coding:
-# 38;5;COLOR_NUMBER
-# Background 256 color coding:
-# 48;5;COLOR_NUMBER
-
-## Special files
-
-# No color code at all
-NORMAL 00;38;5;15
-
-# Regular file: use no color at all
-FILE 00
-
-# Reset to "normal" color
-RESET 0
-
-# Directory
-DIR 0;38;5;4
-
-# Symbolic link. (If you set this to 'target' instead of a
-# numerical value, the color is as for the file pointed to.)
-LINK 01;38;5;111
-
-# Regular file with more than one link
-MULTIHARDLINK 00
-
-# Pipe
-FIFO 48;5;230;38;5;136;01
-
-# Socket
-SOCK 48;5;230;38;5;136;01
-
-# Block device driver
-BLK ;4;230;38;5;142;01
-
-# Character device driver
-CHR ;1;230;38;5;94;01
-
-# Symlink to nonexistent file, or non-stat'able file
-ORPHAN 38;5;009;48;5;052
-
-# File that is setuid (u+s)
-SETUID 48;5;160;38;5;230 
-
-# File that is setgid (g+s)
-SETGID 48;5;136;38;5;230
-
-# File with capability
-CAPABILITY 30;41
-
-# Dir with the sticky bit set (+t) and not other-writable
-STICKY 48;5;33;38;5;230 
-
-# Dir that is other-writable (o+w) and not sticky
-OTHER_WRITABLE 38;5;110
-
-# Dir that is sticky and other-writable (+t,o+w)
-STICKY_OTHER_WRITABLE 48;5;64;38;5;230
-
-# This is for files with execute permission:
-EXEC 0;38;5;2
-
-# Code
-.c               01;38;5;148
-.cpp             01;38;5;064
-.go              01;38;5;081
-.js              00;38;5;067
-.ts              01;38;5;141
-.rb              00;38;5;075
-.ru              01;38;5;088
-.lua             01;38;5;025
-.sh              01;38;5;067
-
-*Makefile        0;38;5;3
-*Rakefile        0;38;5;3
-*Gemfile         0;38;5;3
-*Gemfile.lock    0;38;5;239
-.gemspec         0;38;5;3
-
-# Templates
-.erb             01;38;5;010
-.html            01;38;5;010
-.slim            01;38;5;010
-.haml            01;38;5;010
-.sass            01;38;5;010
-.scss            01;38;5;010
-
-# Data
-.json            01;38;5;054
-.yml             01;38;5;054
-.xml             01;38;5;054
-.csv             01;38;5;054
-
-# Documents
-.txt             01;38;5;176
-.tex             01;38;5;176
-.rdf             01;38;5;176
-.nfo             01;38;5;176
-.markdown        01;38;5;176
-.md              01;38;5;176
-*README          01;38;5;176
-*README.txt      01;38;5;176
-*readme.txt      01;38;5;176
-*LICENSE         01;38;5;165
-
-# Files of special interest
-.torrent         00;38;5;120
-*rc              01;38;5;141
-.cfg             01;38;5;005
-.conf            01;38;5;005
-
-# "transient" files as logs and backups (dark gray)
-.log             00;38;5;235
-.bak             00;38;5;235
-.aux             00;38;5;235
-.out             00;38;5;235
-.toc             00;38;5;235
-*~               00;38;5;235
-*#               00;38;5;235
-.part            00;38;5;235
-.incomplete      00;38;5;235
-.swp             00;38;5;235
-.tmp             00;38;5;235
-.temp            00;38;5;235
-.o               00;38;5;235
-.pyc             00;38;5;235
-.class           00;38;5;235
-.cache           00;38;5;235
-
-# Audio formats (orange)
-.aac             00;38;5;166
-.au              00;38;5;166
-.flac            00;38;5;166
-.mid             00;38;5;166
-.midi            00;38;5;166
-.mka             00;38;5;166
-.mp3             00;38;5;166
-.ogg             00;38;5;166
-.wav             00;38;5;166
-.m4a             00;38;5;166
-
-# Video formats (darker orange + bold)
-.mov             01;38;5;202
-.mpg             01;38;5;202
-.mpeg            01;38;5;202
-.m2v             01;38;5;202
-.mkv             01;38;5;202
-.ogm             01;38;5;202
-.mp4             01;38;5;202
-.m4v             01;38;5;202
-.mp4v            01;38;5;202
-.vob             01;38;5;202
-.qt              01;38;5;202
-.nuv             01;38;5;202
-.wmv             01;38;5;202
-.asf             01;38;5;202
-.rm              01;38;5;202
-.rmvb            01;38;5;202
-.flc             01;38;5;202
-.avi             01;38;5;202
-.fli             01;38;5;202
-.flv             01;38;5;202
-.gl              01;38;5;202
-.m2ts            01;38;5;202
-.divx            01;38;5;202
-.webm            01;38;5;202
-
-# Image formats (yellow)
-.jpg             00;38;5;215
-.JPG             00;38;5;215 #stupid but needed
-.jpeg            00;38;5;215
-.gif             00;38;5;215
-.bmp             00;38;5;215
-.pbm             00;38;5;215
-.pgm             00;38;5;215
-.ppm             00;38;5;215
-.tga             00;38;5;215
-.xbm             00;38;5;215
-.xpm             00;38;5;215
-.tif             00;38;5;215
-.tiff            00;38;5;215
-.png             00;38;5;215
-.svg             00;38;5;215
-.svgz            00;38;5;215
-.mng             00;38;5;215
-.pcx             00;38;5;215
-.dl              00;38;5;215
-.xcf             00;38;5;215
-.xwd             00;38;5;215
-.yuv             00;38;5;215
-.cgm             00;38;5;215
-.emf             00;38;5;215
-.eps             00;38;5;215
-.CR2             00;38;5;215
-.ico             00;38;5;215
-
-# Archives or compressed (violet)
-.zip             01;38;5;61
-.tar             00;38;5;61
-.tgz             01;38;5;61
-.lzh             01;38;5;61
-.z               01;38;5;61
-.Z               01;38;5;61
-.7z              01;38;5;61
-.gz              01;38;5;61
-.bz2             01;38;5;61
-.bz              01;38;5;61
-.deb             01;38;5;61
-.rpm             01;38;5;61
-.jar             01;38;5;61
-.rar             01;38;5;61
-.apk             01;38;5;61
-.gem             01;38;5;61
-
-# Term Section
+# Below, there should be one TERM entry for each termtype that is colorizable
 TERM Eterm
 TERM ansi
 TERM color-xterm
@@ -257,6 +16,8 @@ TERM cons25
 TERM console
 TERM cygwin
 TERM dtterm
+TERM dvtm
+TERM dvtm-256color
 TERM eterm-color
 TERM fbterm
 TERM gnome
@@ -276,23 +37,249 @@ TERM rxvt-256color
 TERM rxvt-cygwin
 TERM rxvt-cygwin-native
 TERM rxvt-unicode
-TERM rxvt-unicode256
 TERM rxvt-unicode-256color
+TERM rxvt-unicode256
 TERM screen
+TERM screen-16color
+TERM screen-16color-bce
+TERM screen-16color-bce-s
+TERM screen-16color-s
 TERM screen-256color
 TERM screen-256color-bce
-TERM screen-256color-s
 TERM screen-256color-bce-s
+TERM screen-256color-italic
+TERM screen-256color-s
 TERM screen-bce
 TERM screen-w
+TERM screen.Eterm
 TERM screen.linux
+TERM screen.rxvt
+TERM screen.xterm-256color
 TERM st
 TERM st-256color
+TERM st-meta
+TERM st-meta-256color
+TERM terminator
+TERM tmux
+TERM tmux-256color
 TERM vt100
 TERM xterm
 TERM xterm-16color
 TERM xterm-256color
+TERM xterm-256color-italic
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
 TERM xterm-termite
+
+# Below are the color init strings for the basic file types. A color init string
+# consists of one or more of the following numeric codes:
+#
+# Attributes:
+#
+#  0     to restore default color
+#  1     for brighter colors
+#  4     for underlined text
+#  5     for flashing text
+#
+# Foreground:
+#
+# 30     for black foreground
+# 31     for red foreground
+# 32     for green foreground
+# 33     for yellow (or brown) foreground
+# 34     for blue foreground
+# 35     for purple foreground
+# 36     for cyan foreground
+# 37     for white (or gray) foreground
+#
+# Background:
+#
+# 40     for black background
+# 41     for red background
+# 42     for green background
+# 43     for yellow (or brown) background
+# 44     for blue background
+# 45     for purple background
+# 46     for cyan background
+# 47     for white (or gray) background
+#
+# 256 colour is available:
+#
+# - https://www.mail-archive.com/bug-coreutils@gnu.org/msg11030.html
+# - https://github.com/morhetz/gruvbox
+#
+# Text color coding:
+# 38;5;COLOR_NUMBER
+# Background color coding:
+# 48;5;COLOR_NUMBER
+# COLOR_NUMBER is from 0 to 255.
+
+NORMAL 00;38;5;250 # no color code at all
+FILE   00;38;5;223 # regular file: use no color at all
+RESET  00;38;5;172 # reset to "normal" color
+DIR    00;38;5;166 # directory
+LINK   target      # symbolic link. (If you set this to 'target' instead of a
+                   # numerical value, the color is as for the file pointed to.)
+
+MULTIHARDLINK         04        # regular file with more than one link
+FIFO                  40;33     # pipe
+SOCK                  38;5;211  # socket
+DOOR                  38;5;211  # door
+BLK                   40;33;01  # block device driver
+CHR                   40;33;01  # character device driver
+ORPHAN                40;31;01  # symlink to nonexistent file, or non-stat'able file
+SETUID                37;41     # file that is setuid (u+s)
+SETGID                30;43     # file that is setgid (g+s)
+CAPABILITY            30;41     # file with capability
+STICKY_OTHER_WRITABLE 01;36;44  # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE        38;5;208;48;5;243 # dir that is other-writable (o+w) and not sticky
+STICKY                38;5;208;48;5;243 # dir with the sticky bit set (+t) and not other-writable
+
+# This is for files with execute permission:
+EXEC  01;30;32
+
+# Crufty and ignorable files
+.bak   38;5;246
+.cache 38;5;246
+.dist  38;5;246
+.lock  38;5;246
+.log   38;5;246
+.old   38;5;246
+.orig  38;5;246
+.temp  38;5;246
+.tmp   38;5;246
+
+# archives or compressed (bright red)
+.7z   01;31
+.Z    01;31
+.ace  01;31
+.arj  01;31
+.bz   01;31
+.bz2  01;31
+.cpio 01;31
+.deb  01;31
+.dz   01;31
+.ear  01;31
+.gz   01;31
+.jar  01;31
+.lz   01;31
+.lzh  01;31
+.lzma 01;31
+.rar  01;31
+.rpm  01;31
+.rz   01;31
+.sar  01;31
+.tar  01;31
+.taz  01;31
+.tbz  01;31
+.tbz2 01;31
+.tgz  01;31
+.tlz  01;31
+.txz  01;31
+.tz   01;31
+.war  01;31
+.xz   01;31
+.z    01;31
+.zip  01;31
+.zoo  01;31
+
+# image formats
+.anx  01;35
+.asf  01;35
+.avi  01;35
+.axv  01;35
+.bmp  01;35
+.cgm  01;35
+.dl   01;35
+.emf  01;35
+.flc  01;35
+.fli  01;35
+.flv  01;35
+.gif  01;35
+.gl   01;35
+.jpeg 01;35
+.jpg  01;35
+.m2v  01;35
+.m4v  01;35
+.mkv  01;35
+.mng  01;35
+.mov  01;35
+.mp4  01;35
+.mp4v 01;35
+.mpeg 01;35
+.mpg  01;35
+.nuv  01;35
+.ogm  01;35
+.ogv  01;35
+.ogx  01;35
+.pbm  01;35
+.pcx  01;35
+.pgm  01;35
+.png  01;35
+.ppm  01;35
+.qt   01;35
+.rm   01;35
+.rmvb 01;35
+.svg  01;35
+.svgz 01;35
+.tga  01;35
+.tif  01;35
+.tiff 01;35
+.vob  01;35
+.webm 01;35
+.wmv  01;35
+.xbm  01;35
+.xcf  01;35
+.xpm  01;35
+.xwd  01;35
+.yuv  01;35
+
+# audio formats
+.aac  01;33
+.au   01;33
+.flac 01;33
+.mid  01;33
+.midi 01;33
+.mka  01;33
+.mp3  01;33
+.mpc  01;33
+.ogg  01;33
+.ra   01;33
+.wav  01;33
+.axa  01;33
+.oga  01;33
+.spx  01;33
+.xspf 01;33
+
+# documents
+.doc   38;5;109
+.docx  38;5;109
+.html  38;5;109
+.rb    38;5;109
+.c     38;5;109
+.cpp   38;5;109
+.h     38;5;109
+.hpp   38;5;109
+.py    38;5;109
+.go    38;5;109
+.js    38;5;109
+.ts    38;5;109
+.jsx   38;5;109
+.tsx   38;5;109
+.json  38;5;109
+.md    38;5;109
+.neon  38;5;109
+.odp   38;5;109
+.ods   38;5;109
+.odt   38;5;109
+.pdf   38;5;109
+.php   38;5;109
+.phtml 38;5;109
+.ppt   38;5;109
+.pptx  38;5;109
+.tex   38;5;109
+.txt   38;5;109
+.xls   38;5;109
+.xlsx  38;5;109
+.xml   38;5;109
