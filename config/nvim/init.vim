@@ -1,4 +1,4 @@
-set nocp
+syntax on
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -17,25 +17,17 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 
-Plug 'junegunn/rainbow_parentheses.vim'
-
 call plug#end()
 
-syntax on
-filetype plugin indent on
-
-set termguicolors
-let g:gruvbox_italic=1
-
 if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
 endif
 
-let g:gruvbox_invert_selection='0'
-
-set background=dark
+let g:gruvbox_italic=1
 colorscheme gruvbox
+set background=dark
 
 " appearance
 set cursorline
@@ -86,15 +78,6 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <A-p> :Files<CR>
-
-" au
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-
-augroup rainbow
-  au!
-  au FileType javascript,typescript,python,ruby RainbowParentheses
-augroup END
 
 " coc.nvim
 let g:coc_global_extensions = ['coc-deno', 'coc-clangd', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-json']
@@ -151,5 +134,3 @@ let g:lightline = {
   \    'charhexvalue': '0x%B'
   \ }
   \ }
-
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]

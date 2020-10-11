@@ -37,7 +37,7 @@ else
 fi
 
 export EDITOR=/usr/bin/vim
-export PS1="\[$(tput setaf 4)\]\u: \[$(tput setaf 5)\]\W \[$(tput sgr0)\]$ "
+export PS1="\[$(tput setaf 12)\]\u: \[$(tput setaf 13)\]\W \[$(tput sgr0)\]$ "
 
 # easily go up lots of directories
 function up {
@@ -49,8 +49,6 @@ function up {
             cd $ups
         } || echo "usage: up INTEGER"
 }
-
-[ -z "$TMUX" ] && export TERM=st-256color
 
 export FZF_DEFAULT_OPTS='
   --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
@@ -90,6 +88,4 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 export PATH="$HOME/opt/cross/bin:$PATH"
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
-
-source "$HOME/dotfiles/gruvbox_256palette.sh"
+source $HOME/.cargo/env
