@@ -1,7 +1,7 @@
 # Below, there should be one TERM entry for each termtype that is colorizable
 TERM Eterm
-TERM alacritty
 TERM ansi
+TERM alacritty
 TERM color-xterm
 TERM con132x25
 TERM con132x30
@@ -257,13 +257,12 @@ EXEC  01;30;32
 .doc   38;5;109
 .docx  38;5;109
 .html  38;5;109
-.rb    38;5;109
 .c     38;5;109
-.cpp   38;5;109
 .h     38;5;109
+.cpp   38;5;109
 .hpp   38;5;109
 .py    38;5;109
-.go    38;5;109
+.rb    38;5;109
 .js    38;5;109
 .ts    38;5;109
 .jsx   38;5;109

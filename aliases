@@ -11,6 +11,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias lg='ls --color=always | grep --color=always -i'
 
+alias tmux='TERM=screen-256color tmux'
+
 # pretty print subdir tree
 alias tree="find . -print | sed -e 's;[^/]*/;|___;g;s;___|; |;g'"
 
