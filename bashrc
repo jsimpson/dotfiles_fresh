@@ -37,7 +37,7 @@ else
 fi
 
 export EDITOR=/usr/bin/vim
-export PS1="\[$(tput setaf 12)\]\u: \[$(tput setaf 13)\]\W \[$(tput sgr0)\]$ "
+export PS1="\[$(tput setaf 4)\]\u: \[$(tput setaf 2)\]\W \[$(tput sgr0)\]$ "
 
 # easily go up lots of directories
 function up {

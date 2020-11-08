@@ -1,7 +1,46 @@
-set nocompatible
+set nocp
+
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'gruvbox-community/gruvbox'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'thoughtbot/vim-rspec'
+
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
+
+Plug 'vimwiki/vimwiki'
+
+call plug#end()
 
 syntax on
 filetype plugin indent on
+
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+set background=dark
 
 " appearance
 set cursorline
@@ -41,43 +80,6 @@ set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 
-call plug#begin('~/.config/nvim/plugged')
-
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/completion-nvim'
-
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'sheerun/vim-polyglot'
-
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-Plug 'itchyny/lightline.vim'
-
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-fugitive'
-
-Plug 'junegunn/rainbow_parentheses.vim'
-
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-
-call plug#end()
-
-" colorscheme
-if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark=1
-colorscheme gruvbox
-set background=dark
-
 " mappings
 let mapleader=","
 
@@ -91,7 +93,7 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <A-p> :Files<CR>
 
 " coc.nvim
-let g:coc_global_extensions = ['coc-deno', 'coc-clangd', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-json']
+let g:coc_global_extensions = ['coc-solargraph', 'coc-deno', 'coc-clangd', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-json']
 
 if isdirectory('./node_modules')
   if isdirectory('./node_modules/prettier')
@@ -160,16 +162,3 @@ augroup END
     }
   }
 END
-
-":lua << END
-"  require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
-"  require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
-"END
-"
-"nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-"nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-"nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
-"nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
-"nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
-"nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
-"nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
