@@ -5,6 +5,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'kovisoft/slimv'
+
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -152,7 +154,7 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
 augroup rainbow_parens
   au!
-  au FileType c,h,cpp,hpp,python,javascript,typescript,javascriptreact,typescriptreact,ruby,eruby RainbowParentheses
+  au FileType c,h,cpp,hpp,lisp,python,javascript,typescript,javascriptreact,typescriptreact,ruby,eruby RainbowParentheses
 augroup END
 
 :lua << END
