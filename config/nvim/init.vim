@@ -5,8 +5,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
 
-Plug 'kovisoft/slimv'
-
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -14,19 +12,12 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-bundler'
-Plug 'thoughtbot/vim-rspec'
-
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -95,7 +86,7 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <A-p> :Files<CR>
 
 " coc.nvim
-let g:coc_global_extensions = ['coc-solargraph', 'coc-deno', 'coc-clangd', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-json']
+let g:coc_global_extensions = ['coc-clangd', 'coc-go', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-json']
 
 if isdirectory('./node_modules')
   if isdirectory('./node_modules/prettier')
@@ -115,9 +106,6 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-
-command! -nargs=0 DenoFmt :%!deno fmt .
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 "" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
