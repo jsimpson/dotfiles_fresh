@@ -66,15 +66,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/.rbenv" ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    if [ -d "$HOME/.rbenv/shims" ]; then
-        export PATH="$HOME/.rbenv/shims:$PATH"
-    fi
-    eval "$(rbenv init -)"
-    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-fi
-
 if [ -d "$HOME/luarocks" ]; then
     export PATH="$HOME/luarocks/bin:$PATH"
 fi
@@ -83,9 +74,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export DENO_INSTALL="/home/jsimpson/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 export PATH="$HOME/opt/cross/bin:$PATH"
 
-source $HOME/.cargo/env
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOROOT/bin:$GOBIN:$PATH"
+
+export GO111MODULE=on
+export CGO_ENABLED=1
+
+complete -C /home/jsimpson/go/bin/gocomplete go
